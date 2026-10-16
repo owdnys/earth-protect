@@ -422,6 +422,25 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
       return Math.abs(lat).toFixed(1) + '° ' + (lat >= 0 ? 'N' : 'S') + ' · ' + Math.abs(lon).toFixed(1) + '° ' + (lon >= 0 ? 'E' : 'W');
     }
 
+    /* Flatten the coastline into unit vectors once, so per-frame clipping works
+       in 3D instead of on already-projected 2D points. */
+    var COAST = (function () {
+      var vec = [], rings = [], polys = [];
+      for (var i = 0; i < LAND.length; i++) {
+        var poly = LAND[i], first = rings.length;
+        for (var j = 0; j < poly.length; j++) {
+          var ring = poly[j], base = vec.length / 3, n = ring.length / 2;
+          for (var k = 0; k < ring.length; k += 2) {
+            var la = ring[k + 1] * D2R, lo = ring[k] * D2R, cl = Math.cos(la);
+            vec.push(cl * Math.cos(lo), cl * Math.sin(lo), Math.sin(la));
+          }
+          rings.push({ base: base, n: n });
+        }
+        polys.push({ first: first, count: rings.length - first });
+      }
+      return { vec: vec, rings: rings, polys: polys };
+    })();
+
     function drawGraticule() {
       ctx.strokeStyle = 'rgba(150,205,215,0.13)';
       ctx.lineWidth = 1;
@@ -446,40 +465,108 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
       }
     }
 
+    /* Land is drawn by clipping each coastline ring in 3D against the horizon
+       plane, then bridging the cut with an arc along the limb. Pinning hidden
+       vertices to the rim instead would let a ring that wraps the far side —
+       Antarctica is the usual culprit — close across the disc and flood the
+       whole visible hemisphere with land. */
     function drawLand() {
-      ctx.fillStyle = '#4a7f72';
-      ctx.strokeStyle = 'rgba(160,205,170,0.45)';
-      ctx.lineWidth = 0.8;
-      for (var i = 0; i < LAND.length; i++) {
-        var poly = LAND[i];
-        for (var j = 0; j < poly.length; j++) {
-          var ring = poly[j];
-          var pts = [], anyFront = false;
-          for (var k = 0; k < ring.length; k += 2) {
-            var p = project(ring[k + 1], ring[k]);
-            if (p[2]) anyFront = true;
-            pts.push(p);
+      var p0 = rotLat * D2R, l0 = rotLon * D2R;
+      var cp0 = Math.cos(p0), sp0 = Math.sin(p0), cl0 = Math.cos(l0), sl0 = Math.sin(l0);
+      // Camera basis in the rotating frame: east, north, and the view direction.
+      var rx = -sl0, ry = cl0, rz = 0;
+      var ux = -sp0 * cl0, uy = -sp0 * sl0, uz = cp0;
+      var fx = cp0 * cl0, fy = cp0 * sl0, fz = sp0;
+
+      var vec = COAST.vec;
+      // Scratch buffers, reused across frames to avoid per-frame allocation.
+      var cx3 = [], cy3 = [], cz3 = [], ox = [], oy = [], oa = [], clipped = [];
+
+      for (var p = 0; p < COAST.polys.length; p++) {
+        var poly = COAST.polys[p];
+        clipped.length = 0;
+
+        for (var r = 0; r < poly.count; r++) {
+          var ring = COAST.rings[poly.first + r];
+          var base = ring.base * 3, n = ring.n;
+          cx3.length = 0; cy3.length = 0; cz3.length = 0;
+          var front = 0;
+          for (var i = 0; i < n; i++) {
+            var o = base + i * 3, vx = vec[o], vy = vec[o + 1], vz = vec[o + 2];
+            var X = vx * rx + vy * ry + vz * rz;
+            var Y = vx * ux + vy * uy + vz * uz;
+            var Z = vx * fx + vy * fy + vz * fz;
+            cx3.push(X); cy3.push(Y); cz3.push(Z);
+            if (Z >= 0) front++;
           }
-          if (!anyFront) continue;
-          // Back-facing vertices are pinned to the limb, which keeps the filled
-          // silhouette correct while the clip circle trims it to the disc.
-          ctx.beginPath();
-          for (var a = 0; a < pts.length; a++) {
-            if (a === 0) ctx.moveTo(pts[a][0], pts[a][1]); else ctx.lineTo(pts[a][0], pts[a][1]);
-          }
-          ctx.closePath();
-          ctx.fill();
-          // Outline only segments that are genuinely on the near side, so no
-          // bright ring is painted along the limb.
-          ctx.beginPath();
-          for (var b = 1; b < pts.length; b++) {
-            if (pts[b - 1][2] && pts[b][2]) {
-              ctx.moveTo(pts[b - 1][0], pts[b - 1][1]);
-              ctx.lineTo(pts[b][0], pts[b][1]);
+          if (front === 0) continue;
+
+          // Sutherland-Hodgman clip of the closed ring against Z >= 0.
+          ox.length = 0; oy.length = 0; oa.length = 0;
+          for (var a = 0; a < n; a++) {
+            var b = (a + 1) % n, za = cz3[a], zb = cz3[b];
+            if (za >= 0) { ox.push(cx3[a]); oy.push(cy3[a]); oa.push(0); }
+            if ((za >= 0) !== (zb >= 0)) {
+              var t = za / (za - zb);
+              ox.push(cx3[a] + (cx3[b] - cx3[a]) * t);
+              oy.push(cy3[a] + (cy3[b] - cy3[a]) * t);
+              oa.push(1);
             }
           }
-          ctx.stroke();
+          if (ox.length < 3) continue;
+
+          // The two crossings left by a cut are adjacent, so bridge them along
+          // the limb. A straight chord here is what used to sweep the disc.
+          var px2 = [], py2 = [], arc = [];
+          for (var q = 0; q < ox.length; q++) {
+            var qn = (q + 1) % ox.length;
+            px2.push(ox[q]); py2.push(oy[q]); arc.push(oa[q]);
+            if (oa[q] && oa[qn]) {
+              var angA = Math.atan2(oy[q], ox[q]);
+              var angB = Math.atan2(oy[qn], ox[qn]);
+              var d = angB - angA;
+              while (d > Math.PI) d -= 2 * Math.PI;
+              while (d < -Math.PI) d += 2 * Math.PI;
+              var steps = Math.max(2, Math.ceil(Math.abs(d) / 0.07));
+              for (var s = 1; s < steps; s++) {
+                var ang = angA + d * s / steps;
+                px2.push(Math.cos(ang)); py2.push(Math.sin(ang)); arc.push(2);
+              }
+            }
+          }
+          clipped.push({ pts: px2, ys: py2, arc: arc });
         }
+
+        if (!clipped.length) continue;
+
+        // Fill: every ring of this polygon in one path, so even-odd still
+        // treats inner rings (lakes, inland seas) as holes.
+        ctx.beginPath();
+        for (var c1 = 0; c1 < clipped.length; c1++) {
+          var g = clipped[c1];
+          for (var m = 0; m < g.pts.length; m++) {
+            var ex = cx + R * g.pts[m], ey = cy - R * g.ys[m];
+            if (m === 0) ctx.moveTo(ex, ey); else ctx.lineTo(ex, ey);
+          }
+          ctx.closePath();
+        }
+        ctx.fillStyle = '#4a7f72';
+        ctx.fill('evenodd');
+
+        // Stroke: real coastline segments only; limb arcs stay invisible.
+        ctx.beginPath();
+        ctx.strokeStyle = 'rgba(160,205,170,0.45)';
+        ctx.lineWidth = 0.8;
+        for (var c2 = 0; c2 < clipped.length; c2++) {
+          var h = clipped[c2];
+          for (var w = 0; w < h.pts.length; w++) {
+            var wn = (w + 1) % h.pts.length;
+            if (h.arc[w] === 2 || h.arc[wn] === 2) continue;
+            ctx.moveTo(cx + R * h.pts[w], cy - R * h.ys[w]);
+            ctx.lineTo(cx + R * h.pts[wn], cy - R * h.ys[wn]);
+          }
+        }
+        ctx.stroke();
       }
     }
 
