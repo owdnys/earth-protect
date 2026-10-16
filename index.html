@@ -10,8 +10,30 @@
   <style>
 :root{color-scheme:dark;--bg:#070f1c;--panel:#0d1827;--line:#203147;--muted:#77899d;--text:#ecf3f6;--lime:#b8f07a;--green:#7bd9a4;--gold:#edcd83;--blue:#83c8f1;--warm:#eea987}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 'Outfit','Segoe UI','Microsoft YaHei',sans-serif;min-width:320px}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible{outline:2px solid var(--lime);outline-offset:3px}button:disabled{opacity:.5;cursor:not-allowed}.noise{position:fixed;inset:0;pointer-events:none;z-index:9;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.14'/%3E%3C/svg%3E")}.app{max-width:1650px;margin:auto;padding:0 28px}.topbar{height:86px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.identity{display:flex;align-items:center;gap:11px;text-decoration:none;color:inherit}.identity-mark{width:39px;height:39px;border:1.5px solid var(--lime);color:var(--lime);border-radius:50%;display:grid;place-items:center;font-size:29px;line-height:1}.identity strong{display:block;font-size:15px;letter-spacing:2.5px;font-weight:700}.identity small{display:block;color:var(--lime);font-size:9px;letter-spacing:3px;margin-top:1px}.top-center,.top-right,.eyebrow,.thin,.year-pill,.globe-topline,.globe-hint,.globe-bottom,.metric-foot,.budget-note,.footer-note,.mission-progress small{font:10px/1.5 'DM Mono',Consolas,'Microsoft YaHei',monospace;letter-spacing:1.1px}.top-center{color:#7891a5}.pulse,.live-dot,.tiny-led{display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-right:10px;box-shadow:0 0 14px var(--lime)}.separator{margin:0 13px;color:#476279}.top-right{display:flex;align-items:center;color:#a9b9bd;gap:5px}.live-dot{width:5px;height:5px;margin:0 6px 0 0}.year-pill{border:1px solid #3b5c4c;color:var(--lime);padding:8px 12px;border-radius:4px;margin-left:15px}.workspace{display:grid;grid-template-columns:minmax(285px,320px) minmax(390px,1fr) minmax(270px,305px);min-height:660px;border-bottom:1px solid var(--line)}.panel{padding:30px 24px 28px 0}.left-panel{border-right:1px solid var(--line)}.right-panel{border-left:1px solid var(--line);padding:30px 0 28px 24px}.eyebrow{color:var(--lime);font-weight:500;display:flex;align-items:center;justify-content:space-between}.eyebrow span{color:#5e748b;font-weight:400}.left-panel h1{font-size:27px;line-height:1.42;letter-spacing:-.6px;margin:25px 0 10px;font-weight:600}.left-panel h1 em{font-style:normal;color:var(--lime)}.intro{color:#a0b0bf;font-size:12px;line-height:1.85;margin:0 0 26px}.intro b{color:var(--text);font-weight:500}.section-title{display:flex;align-items:center;justify-content:space-between;font-weight:600;font-size:13px;margin-bottom:14px}.thin{color:#657c92;font-weight:400}.action-list{display:grid;gap:9px}.action-card{border:1px solid #273b4c;background:#101d2c;color:inherit;width:100%;display:flex;gap:11px;text-align:left;padding:13px 11px 12px;border-radius:6px;transition:background .18s,border-color .18s,transform .18s;position:relative}.action-card:hover{background:#172a37;transform:translateX(2px)}.action-card.selected{background:linear-gradient(105deg,#1d3a37,#122b32);border-color:#9fdb83;box-shadow:inset 3px 0 var(--lime)}.action-symbol{width:31px;height:31px;border:1px solid #517969;border-radius:5px;display:grid;place-items:center;font-size:18px;color:var(--lime);flex:none}.action-info{flex:1;min-width:0}.action-info strong{display:block;font-size:13px;line-height:1.3}.action-info small{display:block;color:#8b9eab;font-size:10px;margin-top:5px}.action-cost{font:10px 'DM Mono',Consolas,monospace;color:var(--gold);white-space:nowrap;padding-top:3px}.target-callout{display:flex;align-items:center;gap:10px;margin-top:16px;padding:11px;background:#132231;border:1px dashed #385660;border-radius:5px}.target-symbol{color:var(--lime);font-size:22px}.target-callout div{flex:1;min-width:0}.target-callout strong,.target-callout div span{display:block}.target-callout strong{font-size:11px}.target-callout div span{font-size:10px;color:#8fa3ae;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.target-callout button{background:transparent;border:0;color:#bed1c4;font-size:16px;padding:4px}.strategy-title{margin-top:23px}.strength-group{display:flex;gap:7px}.strength{background:#112031;color:#a2b2bf;border:1px solid #283b4b;border-radius:5px;padding:9px 8px;flex:1;font-size:11px;white-space:nowrap}.strength span{color:#7b95a4}.strength.active{border-color:var(--lime);background:#243f38;color:var(--lime)}.strength.active span{color:#b9e38d}.deploy{border:0;background:var(--lime);color:#10241c;font-weight:700;width:100%;padding:13px 16px;margin-top:16px;border-radius:5px;display:flex;justify-content:space-between;transition:filter .2s,transform .2s}.deploy:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-2px)}.budget-note{text-align:center;color:#768b9b;margin:11px 0 0;letter-spacing:0}.globe-panel{min-width:0;position:relative;display:flex;flex-direction:column;overflow:hidden;background:radial-gradient(ellipse 60% 60% at 52% 47%,#142a37 0%,#0a1828 52%,#091421 78%,#081321 100%)}.globe-panel:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#9fd4d8 1px,transparent 1px),radial-gradient(#678493 1px,transparent 1px);background-size:91px 93px,147px 125px;background-position:8px 16px,34px 55px;opacity:.24;pointer-events:none}.globe-topline,.globe-bottom{z-index:2;display:flex;justify-content:space-between;align-items:center;color:#7896a6;padding:29px 28px 0}.globe-topline span:first-child{color:var(--lime)}.globe-stage{flex:1;position:relative;min-height:500px}.globe-stage canvas{display:block;width:100%;height:100%}#globeCanvas{position:absolute;inset:0;z-index:1}.halo{position:absolute;width:min(88%,520px);aspect-ratio:1;left:50%;top:47%;transform:translate(-50%,-50%);border:1px solid #708c9840;border-radius:50%;pointer-events:none}.halo-two{width:min(106%,640px);border-color:#5d82961e}.globe-cross{position:absolute;color:#426579;font-size:16px;top:47%}.cross-left{left:6%}.cross-right{right:6%}.globe-label{position:absolute;z-index:2;right:7%;top:32%;display:flex;gap:9px;align-items:flex-start;font:10px/1.5 'DM Mono',Consolas,monospace;color:#c8dee0;letter-spacing:1px;pointer-events:none}.globe-label b{font-weight:400;color:var(--lime)}.globe-label-line{height:1px;width:33px;background:#9cb5ae;margin-top:6px}.globe-hint{position:absolute;z-index:2;bottom:28px;left:0;right:0;text-align:center;color:#9fb0b7}.globe-hint span{color:var(--lime);margin:0 5px}.globe-fallback{position:absolute;z-index:4;left:20px;right:20px;top:50%;transform:translateY(-50%);text-align:center;background:#1b3040;padding:25px}.globe-bottom{padding:17px 24px;border-top:1px solid #22384955;font-size:9px}.globe-bottom span:nth-child(2){color:#c4d6ce}.tiny-led{width:5px;height:5px;margin-right:6px}.score-heading{display:flex;justify-content:space-between;align-items:center;margin-top:32px;font-size:13px;color:#b9c9cc}.condition{border:1px solid #a07657;background:#392b27;color:#f3ba91;padding:3px 8px;font-size:10px;border-radius:3px}.condition.good{background:#203b32;border-color:#59836a;color:#b8f07a}.score-block{display:flex;align-items:center;justify-content:space-between;margin:9px 0 6px}.score-block strong{font-size:67px;font-weight:600;letter-spacing:-5px;line-height:1}.out-of{color:#738698;font:15px 'DM Mono',Consolas,monospace;margin-left:7px}.score-orb{color:var(--lime);font-size:28px;background:radial-gradient(circle,#345846,#1d3c39 45%,#152b35 70%);border-radius:50%;width:59px;height:59px;display:grid;place-items:center;box-shadow:0 0 0 1px #3a5b4c,0 0 30px #5ebd7a33}.health-track,.metric-track,.progress-track{height:5px;border-radius:10px;background:#233549;overflow:hidden}.health-track span,.metric-track span,.progress-track span{display:block;height:100%;width:0;border-radius:10px;background:var(--lime);transition:width .6s ease}.health-caption{color:#98abb4;font-size:11px;margin:9px 0 27px}.metrics-title{margin-bottom:22px}.metric{margin-bottom:25px}.metric-top{display:flex;align-items:center;justify-content:space-between;font-size:12px;margin-bottom:10px}.metric-top b{font:500 13px 'DM Mono',Consolas,'Microsoft YaHei',monospace;color:#ecf3f6}.metric-icon{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:4px;font-style:normal;margin-right:8px}.metric-icon.warm{color:var(--warm);background:#58352c66}.metric-icon.green{color:var(--green);background:#264c4266}.metric-icon.blue{color:var(--blue);background:#2b486466}.metric-icon.gold{color:var(--gold);background:#574a2b66}.metric-track{height:4px}.metric-track .warm-fill{background:var(--warm)}.metric-track .green-fill{background:var(--green)}.metric-track .blue-fill{background:var(--blue)}.metric-track .gold-fill{background:var(--gold)}.metric-foot{display:flex;justify-content:space-between;color:#70859a;font-size:9px;letter-spacing:0;margin-top:6px}.resource-card{background:#142333;border:1px solid #294157;padding:14px;border-radius:5px;margin-top:10px}.resource-card div{display:flex;justify-content:space-between;align-items:center;color:#b5c7cd;font-size:11px}.resource-card strong{font:600 24px 'DM Mono',Consolas,monospace;color:var(--gold)}.resource-card small{display:block;color:#8197a5;font-size:9px;margin-top:3px}.next-year{width:100%;background:transparent;border:1px solid #4e6f78;border-radius:5px;color:#d0e2d6;padding:12px 15px;margin-top:10px;display:flex;align-items:center;justify-content:space-between}.next-year:hover{border-color:var(--lime);color:var(--lime)}.bottom-panel{padding:27px 0 20px;border-bottom:1px solid var(--line)}.bottom-header{display:flex;justify-content:space-between;align-items:center}.bottom-header .eyebrow{font-size:10px}.bottom-header h2{font-size:20px;font-weight:500;margin:8px 0 0}.restart{border:1px solid #2f485a;background:transparent;color:#94aabb;padding:9px 13px;border-radius:5px;font-size:11px}.restart:hover{color:var(--lime);border-color:var(--lime)}.log-layout{display:grid;grid-template-columns:1fr 260px;gap:24px;margin-top:23px}.timeline{display:flex;gap:10px;overflow-x:auto;padding-bottom:8px;scrollbar-color:#3a5864 transparent}.log-entry{min-width:210px;max-width:245px;padding:12px 14px;background:#101f2e;border:1px solid #293c4d;border-radius:5px}.log-entry:first-child{border-left:2px solid var(--lime)}.log-entry span{font:10px 'DM Mono',Consolas,monospace;color:var(--lime)}.log-entry strong{display:block;margin:5px 0 4px;font-size:12px}.log-entry p{color:#91a5b2;font-size:10px;line-height:1.6;margin:0}.log-entry.empty{min-width:100%;background:#0c1827;border-style:dashed}.mission-progress{border-left:1px solid var(--line);padding-left:22px;align-self:center}.mission-progress div:first-child{display:flex;justify-content:space-between;font-size:11px;margin-bottom:10px}.mission-progress strong{font:12px 'DM Mono',Consolas,monospace;color:var(--lime)}.mission-progress small{color:#8397a4;display:block;margin-top:10px;letter-spacing:0}.footer-note{display:flex;justify-content:center;gap:12px;color:#617b8e;padding:20px 0 30px;letter-spacing:.5px}.footer-note span{color:var(--lime)}.toast{position:fixed;z-index:20;bottom:28px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#20382f;border:1px solid #89c67d;color:#e4f6db;box-shadow:0 12px 35px #0009;border-radius:6px;padding:12px 20px;max-width:min(90vw,560px);text-align:center;transition:opacity .25s,transform .25s}.toast.show{opacity:1;transform:translate(-50%,0)}.modal-backdrop{position:fixed;z-index:30;inset:0;background:#030b13d9;display:grid;place-items:center;padding:20px;backdrop-filter:blur(12px)}.modal-backdrop[hidden]{display:none}.end-card{max-width:480px;width:100%;background:#112232;border:1px solid #577268;padding:35px;border-radius:9px;text-align:center;box-shadow:0 20px 100px #0008}.end-card .eyebrow{justify-content:center}.end-icon{font-size:55px;color:var(--lime);margin:15px auto}.end-card h2{font-size:26px;margin:0 0 10px}.end-card p{color:#a6bdc3;line-height:1.8;font-size:13px}.end-stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px;margin:22px 0;text-align:left;color:#a8c8ae;font-size:12px;line-height:2}.end-card .deploy{justify-content:center}
 /* Make the selected action's cost and result legible before committing. */
-.action-card{align-items:flex-start;flex-wrap:wrap}.action-info{flex:1 1 calc(100% - 48px)}.action-cost{flex:0 0 100%;padding:3px 0 0 42px;color:var(--gold);font:600 11px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;letter-spacing:0}.action-preview{margin-top:15px;padding:11px 12px;border:1px solid #547b67;background:#193329;border-radius:5px;color:#d7e9df;font-size:11px;line-height:1.7}.action-preview strong{display:block;color:var(--lime);font-size:12px;margin-bottom:3px}.action-preview b{color:var(--gold)}.target-callout button{border:1px solid #477866;color:var(--lime);border-radius:4px;padding:5px 7px;font-size:10px;white-space:nowrap}.budget-note{min-height:30px;letter-spacing:0;font-size:10px;line-height:1.5}.section-title .thin{font:10px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;letter-spacing:0;max-width:60%;text-align:right}
-@media(max-width:1150px){.app{padding:0 20px}.workspace{grid-template-columns:minmax(240px,290px) minmax(340px,1fr)}.right-panel{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:24px 0;display:grid;grid-template-columns:repeat(2,1fr);column-gap:30px;align-items:center}.right-panel>.eyebrow,.right-panel>.score-heading,.right-panel>.score-block,.right-panel>.health-track,.right-panel>.health-caption,.right-panel>.section-title{grid-column:1/-1}.right-panel>.eyebrow{margin-bottom:5px}.right-panel .score-heading{margin-top:12px}.right-panel .metric{margin-bottom:17px}.right-panel .resource-card,.right-panel .next-year{grid-column:1/-1}.globe-stage{min-height:520px}}
+.action-card{align-items:flex-start;flex-wrap:wrap}.action-info{flex:1 1 calc(100% - 48px)}.action-cost{flex:0 0 100%;padding:3px 0 0 42px;color:var(--gold);font:600 11px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;letter-spacing:0}.action-preview{margin-top:15px;padding:11px 12px;border:1px solid #547b67;background:#193329;border-radius:5px;color:#d7e9df;font-size:11px;line-height:1.7}.action-preview strong{display:block;color:var(--lime);font-size:12px;margin-bottom:3px}.action-preview b{color:var(--gold)}.risk-note{display:block;margin-top:6px;color:#e8a98f;font-style:normal;font-size:10px;line-height:1.5}.target-callout button{border:1px solid #477866;color:var(--lime);border-radius:4px;padding:5px 7px;font-size:10px;white-space:nowrap}.budget-note{min-height:30px;letter-spacing:0;font-size:10px;line-height:1.5}.section-title .thin{font:10px/1.4 'Segoe UI','Microsoft YaHei',sans-serif;letter-spacing:0;max-width:60%;text-align:right}
+/* Left and right columns scroll on their own: the wheel over a column moves that
+   column only, and overscroll containment stops it from dragging the page. */
+.panel{max-height:calc(100vh - 140px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#3c5a66 transparent}
+/* The right column is shorter than the viewport, so it needs a floor: without it
+   there is nothing to scroll and the wheel escapes to the page. */
+.right-panel{min-height:calc(100vh - 140px)}
+.panel::-webkit-scrollbar{width:8px}
+.panel::-webkit-scrollbar-track{background:transparent}
+.panel::-webkit-scrollbar-thumb{background:#3c5a66;border-radius:8px;border:2px solid transparent;background-clip:content-box}
+.panel::-webkit-scrollbar-thumb:hover{background:#5b8593;background-clip:content-box}
+.workspace{align-items:start}
+.difficulty{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:20px;padding:13px 15px;border:1px solid var(--line);border-radius:6px;background:#0f1d2c}
+.difficulty-label{font-size:12px;font-weight:600;white-space:nowrap}
+.year-group{display:flex;gap:7px;flex-wrap:wrap}
+.year-opt{background:#112031;color:#a2b2bf;border:1px solid #283b4b;border-radius:5px;padding:8px 15px;font-size:12px;transition:background .18s,border-color .18s,color .18s}
+.year-opt:hover{border-color:#4e7a86;color:#d6e6e0}
+.year-opt.active{border-color:var(--lime);background:#243f38;color:var(--lime);font-weight:600}
+.difficulty small{flex:1 1 100%;color:#8197a5;font-size:10px;line-height:1.6}
+@media(max-width:1150px){.app{padding:0 20px}
+/* Stacked layout: one page scroll instead of nested panes. */
+.panel{max-height:none;overflow:visible;min-height:0}
+.right-panel{min-height:0}
+.workspace{grid-template-columns:minmax(240px,290px) minmax(340px,1fr)}.right-panel{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:24px 0;display:grid;grid-template-columns:repeat(2,1fr);column-gap:30px;align-items:center}.right-panel>.eyebrow,.right-panel>.score-heading,.right-panel>.score-block,.right-panel>.health-track,.right-panel>.health-caption,.right-panel>.section-title{grid-column:1/-1}.right-panel>.eyebrow{margin-bottom:5px}.right-panel .score-heading{margin-top:12px}.right-panel .metric{margin-bottom:17px}.right-panel .resource-card,.right-panel .next-year{grid-column:1/-1}.globe-stage{min-height:520px}}
 @media(max-width:700px){.app{padding:0 15px}.topbar{height:70px}.top-center{display:none}.top-right{font-size:9px}.year-pill{margin-left:4px;padding:5px 6px}.identity strong{font-size:12px}.identity small{letter-spacing:1.4px}.workspace{display:flex;flex-direction:column}.globe-panel{order:0;min-height:450px;margin:0 -15px}.left-panel{order:1;border-right:0;border-top:1px solid var(--line);padding:27px 0}.right-panel{order:2;border-top:1px solid var(--line);padding:27px 0;display:grid;grid-template-columns:1fr 1fr;column-gap:17px}.right-panel .metric-foot{font-size:8px}.globe-stage{min-height:370px}.globe-topline{padding:20px 18px 0;font-size:9px}.globe-bottom{padding:13px;font-size:8px}.globe-bottom span:last-child{display:none}.globe-label{right:4%;top:27%}.globe-hint{bottom:19px}.left-panel h1{margin-top:15px}.action-list{grid-template-columns:1fr 1fr;gap:8px}.action-card{padding:10px;gap:7px}.action-info small{font-size:9px}.action-cost{font-size:9px}.action-symbol{width:27px;height:27px;font-size:15px}.log-layout{grid-template-columns:1fr}.mission-progress{border-left:0;padding-left:0}.footer-note{font-size:8px;display:block;text-align:center}.footer-note span{margin:0 8px}}
 @media(max-width:700px){.action-list{grid-template-columns:1fr}.action-info{flex:1}.action-cost{flex:0 0 auto;padding:2px 0;font-size:11px}.target-callout strong{line-height:1.45}}
 @media(max-width:390px){.action-list{grid-template-columns:1fr}.top-right{font-size:0}.year-pill{font-size:10px}.right-panel{grid-template-columns:1fr}.globe-stage{min-height:320px}}
@@ -31,7 +53,7 @@
       <aside class="left-panel panel">
         <div class="eyebrow">MISSION CONTROL <span>01 / 指挥中心</span></div>
         <h1>每一个决定，<br><em>都会改变地球。</em></h1>
-        <p class="intro">目标：在 <b>20 年后</b>让地球生命力达到 <b>75 分</b>。按下面 ①②③ 操作，每次行动都会立刻显示结果。</p>
+        <p class="intro">目标：在 <b id="introYears">20 年</b>后让地球生命力达到 <b>75 分</b>。按下面 ①②③ 操作，每次行动都会立刻显示结果。</p>
         <div class="section-title"><span>① 选择要做的事</span><span class="thin">消耗的是右侧资源</span></div>
         <div id="actionList" class="action-list"></div>
         <div class="target-callout"><span class="target-symbol">✦</span><div><strong>可选：点击地球指定地区，效果增加 20%</strong><span id="targetName">当前目标 · 全球</span></div><button type="button" id="resetTarget" title="改回对全球行动" aria-label="改回对全球行动">改回全球</button></div>
@@ -64,7 +86,9 @@
       </aside>
     </div>
 
-    <footer class="bottom-panel"><div class="bottom-header"><div><span class="eyebrow">MISSION LOG / 行动记录</span><h2>地球的故事，由你续写。</h2></div><button type="button" id="restart" class="restart">↺ &nbsp;重新开始</button></div><div class="log-layout"><div class="timeline" id="timeline" aria-live="polite"></div><div class="mission-progress"><div><span>任务进度</span><strong id="progressText">0 / 20 年</strong></div><div class="progress-track"><span id="progressFill"></span></div><small>目标：20 年后保持地球生命力 ≥ 75</small></div></div></footer>
+    <footer class="bottom-panel"><div class="bottom-header"><div><span class="eyebrow">MISSION LOG / 行动记录</span><h2>地球的故事，由你续写。</h2></div><button type="button" id="restart" class="restart">↺ &nbsp;重新开始</button></div>
+      <div class="difficulty"><span class="difficulty-label">难度 · 挑战年数</span><div class="year-group" role="group" aria-label="挑战年数"><button type="button" class="year-opt" data-years="10">10 年</button><button type="button" class="year-opt active" data-years="20">20 年</button><button type="button" class="year-opt" data-years="50">50 年</button><button type="button" class="year-opt" data-years="100">100 年</button></div><small>年数越长，越考验长期规划：地球每年都在自然恶化，但补给也逐年累积。行动另有 10% 概率失败。</small></div>
+      <div class="log-layout"><div class="timeline" id="timeline" aria-live="polite"></div><div class="mission-progress"><div><span>任务进度</span><strong id="progressText">0 / 20 年</strong></div><div class="progress-track"><span id="progressFill"></span></div><small id="progressGoal">目标：20 年后保持地球生命力 ≥ 75</small></div></div></footer>
     <div class="footer-note">EARTHKEEPER © 2026 <span>·</span> 这是一款策略模拟游戏，数值为游戏模型而非真实预测。</div>
   </main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -92,10 +116,24 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     { id: 'forest', icon: '♧', name: '大规模植树', desc: '让荒地重新长成森林', cost: 12, color: '142,236,155', effects: { forest: 2.1, temperature: -0.035, ocean: 0.3, people: 0.2 } },
     { id: 'energy', icon: '☼', name: '转向清洁能源', desc: '让阳光与风代替化石燃料', cost: 16, color: '246,210,139', effects: { energy: 5.2, temperature: -0.075, people: 0.4 } },
     { id: 'ocean', icon: '≋', name: '修复海洋生态', desc: '清理塑料，重建蓝色家园', cost: 14, color: '134,206,246', effects: { ocean: 5.5, temperature: -0.014, people: 0.2 } },
-    { id: 'cities', icon: '◇', name: '建设绿色城市', desc: '改善生活，减少城市排放', cost: 15, color: '184,232,225', effects: { energy: 2.6, temperature: -0.045, ocean: 0.4, people: 2.2 } }
+    { id: 'cities', icon: '◇', name: '建设绿色城市', desc: '改善生活，减少城市排放', cost: 15, color: '184,232,225', effects: { energy: 2.6, temperature: -0.045, ocean: 0.4, people: 2.2 } },
+    { id: 'wetland', icon: '≈', name: '恢复湿地草原', desc: '让水草重新蓄水固碳', cost: 13, color: '130,220,190', effects: { forest: 1.4, ocean: 2.0, temperature: -0.025, people: 0.3 } },
+    { id: 'capture', icon: '◉', name: '碳捕集封存', desc: '把二氧化碳压回地下', cost: 18, color: '196,178,240', effects: { temperature: -0.11, energy: 1.2 } },
+    { id: 'farm', icon: '❋', name: '推广生态农业', desc: '少用化肥，养回土壤', cost: 11, color: '212,230,150', effects: { forest: 1.1, people: 1.6, temperature: -0.02 } },
+    { id: 'recycle', icon: '♺', name: '循环回收体系', desc: '让垃圾重新变成资源', cost: 10, color: '158,212,232', effects: { ocean: 2.4, energy: 1.8, people: 0.8 } }
   ];
+  // Shown in the effect preview; `better` says which direction helps the planet.
+  var EFFECT_LABELS = {
+    forest: { name: '森林覆盖率', unit: ' 个百分点', dp: 0 },
+    energy: { name: '清洁能源占比', unit: ' 个百分点', dp: 0 },
+    ocean: { name: '海洋健康', unit: ' 分', dp: 0 },
+    people: { name: '民生', unit: ' 分', dp: 0 },
+    temperature: { name: '全球升温', unit: '°C', dp: 2 }
+  };
+  var YEAR_OPTIONS = [10, 20, 50, 100];
+  var FAIL_CHANCE = 0.1;
   var FRESH = function () {
-    return { year: 1, resources: 52, temperature: 1.8, forest: 30, ocean: 62, energy: 22, people: 65, selected: 'forest', strength: 1, target: null, log: [], finished: false };
+    return { year: 1, maxYear: 20, resources: 52, temperature: 1.8, forest: 30, ocean: 62, energy: 22, people: 65, selected: 'forest', strength: 1, target: null, log: [], finished: false };
   };
   var state = FRESH();
   var globe = null;
@@ -131,9 +169,9 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
   function restore() {
     try {
       var raw = JSON.parse(localStorage.getItem('earthkeeper-save-v1') || 'null');
-      if (!raw || !Number.isInteger(raw.year) || raw.year < 1 || raw.year > 20 || !Number.isFinite(raw.temperature) || !Array.isArray(raw.log)) return;
+      if (!raw || !Number.isInteger(raw.year) || raw.year < 1 || raw.year > 100 || !Number.isFinite(raw.temperature) || !Array.isArray(raw.log)) return;
       var clean = FRESH();
-      var keys = ['year', 'resources', 'temperature', 'forest', 'ocean', 'energy', 'people', 'selected', 'strength', 'target', 'log', 'finished'];
+      var keys = ['year', 'maxYear', 'resources', 'temperature', 'forest', 'ocean', 'energy', 'people', 'selected', 'strength', 'target', 'log', 'finished'];
       for (var i = 0; i < keys.length; i++) {
         var k = keys[i];
         if (Object.prototype.hasOwnProperty.call(raw, k)) clean[k] = raw[k];
@@ -141,6 +179,10 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
       var known = false;
       for (var j = 0; j < ACTIONS.length; j++) if (ACTIONS[j].id === clean.selected) known = true;
       if (!known) clean.selected = 'forest';
+      var yearsOk = false;
+      for (var y = 0; y < YEAR_OPTIONS.length; y++) if (YEAR_OPTIONS[y] === clean.maxYear) yearsOk = true;
+      if (!yearsOk) clean.maxYear = 20;
+      if (clean.year > clean.maxYear) clean.year = clean.maxYear;
       clean.strength = clamp(Number(clean.strength) || 1, 1, 3);
       clean.resources = clamp(Number(clean.resources) || 0, 0, 999);
       var stats = ['forest', 'ocean', 'energy', 'people'];
@@ -213,19 +255,28 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     }
 
     var cost = a.cost * state.strength;
-    var effectKeys = { forest: ['forest', '森林覆盖率', ' 个百分点'], energy: ['energy', '清洁能源占比', ' 个百分点'], ocean: ['ocean', '海洋健康', ' 分'], cities: ['people', '民生', ' 分'] };
-    var spec = effectKeys[a.id];
-    var key = spec[0], label = spec[1], unit = spec[2];
-    var current = state[key];
-    var gain = round(clamp(round(current + a.effects[key] * state.strength * (state.target ? 1.2 : 1)), 0, 100) - current);
-    var tempGain = a.effects.temperature ? roundTemp(a.effects.temperature * state.strength * (state.target ? 1.2 : 1)) : 0;
-    $('actionPreview').innerHTML = '<strong>这次会怎样？</strong><span>' + label + '约提高 <b>+' + gain + unit + '</b>' +
-      (tempGain < 0 ? '；全球升温约降低 <b>' + Math.abs(tempGain).toFixed(2) + '°C</b>' : '') +
-      '；花费 <b>' + cost + ' 点资源</b>，行动后剩余 <b>' + (state.resources >= cost ? state.resources - cost : '不足') + ' 点</b>。</span>';
+    var focusMul = state.strength * (state.target ? 1.2 : 1);
+    var parts = [];
+    for (var ek in a.effects) {
+      if (!Object.prototype.hasOwnProperty.call(a.effects, ek)) continue;
+      var meta = EFFECT_LABELS[ek];
+      if (!meta) continue;
+      var delta = a.effects[ek] * focusMul;
+      if (ek === 'temperature') {
+        // Lower is better, so the sign is shown as-is rather than forced to "+".
+        parts.push(meta.name + ' <b>' + (delta < 0 ? '−' : '+') + Math.abs(delta).toFixed(meta.dp) + meta.unit + '</b>');
+      } else {
+        var shown = Math.max(0.1, Math.round(Math.abs(delta) * 10) / 10);
+        parts.push(meta.name + ' <b>' + (delta < 0 ? '−' : '+') + shown + meta.unit + '</b>');
+      }
+    }
+    $('actionPreview').innerHTML = '<strong>这次会怎样？</strong><span>' + parts.join('、') +
+      '；花费 <b>' + cost + ' 点资源</b>，行动后剩余 <b>' + (state.resources >= cost ? state.resources - cost : '不足') + ' 点</b>。' +
+      '<em class="risk-note">有 10% 概率失败：资源照扣，效果不生效。</em></span>';
 
     $('deploy').innerHTML = '<span>③ 执行' + a.name + '（花 ' + cost + ' 点资源）</span><span>↗</span>';
     $('deploy').disabled = state.finished || cost > state.resources;
-    $('budgetNote').textContent = state.finished ? '20 年任务已结束，可点击「重新开始」。'
+    $('budgetNote').textContent = state.finished ? state.maxYear + ' 年任务已结束，可点击「重新开始」。'
       : cost > state.resources ? '还差 ' + (cost - state.resources) + ' 点资源，点右侧「推进一年」可补充 18 点。'
       : '做完立刻更新右侧指标与下方行动记录。';
     $('nextYear').disabled = state.finished;
@@ -251,8 +302,17 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
       $(bk + 'Fill').style.width = clamp(state[bk], 0, 100) + '%';
     }
     $('resourceValue').textContent = Math.round(state.resources);
-    $('progressText').textContent = (state.year - 1) + ' / 20 年';
-    $('progressFill').style.width = ((state.year - 1) / 20 * 100) + '%';
+    $('progressText').textContent = (state.year - 1) + ' / ' + state.maxYear + ' 年';
+    $('progressFill').style.width = ((state.year - 1) / state.maxYear * 100) + '%';
+    $('progressGoal').textContent = '目标：' + state.maxYear + ' 年后保持地球生命力 ≥ 75';
+    $('introYears').textContent = state.maxYear + ' 年';
+
+    var yearBtns = document.querySelectorAll('.year-opt');
+    for (var yb = 0; yb < yearBtns.length; yb++) {
+      var on = Number(yearBtns[yb].dataset.years) === state.maxYear;
+      yearBtns[yb].classList.toggle('active', on);
+      yearBtns[yb].setAttribute('aria-pressed', String(on));
+    }
 
     $('timeline').innerHTML = state.log.length ? state.log.map(function (l) {
       return '<div class="log-entry"><span>YEAR ' + String(l.year).padStart(2, '0') + ' / ' + esc(l.symbol || '✦') + '</span><strong>' + esc(l.title) + '</strong><p>' + esc(l.description) + '</p></div>';
@@ -274,6 +334,17 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     state.resources -= cost;
     var focus = state.target ? state.target.name : '全球';
     var focusBonus = state.target ? 1.2 : 1;
+
+    // One action in ten simply fails: the budget is spent, nothing improves.
+    if (Math.random() < FAIL_CHANCE) {
+      addLog(action.name + '失败', focus + ' · 行动受挫，效果未能生效 · 消耗 ' + cost + ' 资源', '✖');
+      $('globeStatus').textContent = focus + ' · ' + action.name + '失败';
+      toast('✖ ' + action.name + '失败！这次行动没有产生效果，仍消耗 ' + cost + ' 点资源。');
+      if (globe) globe.pulse('238,150,140', state.target);
+      render();
+      return;
+    }
+
     var before = {};
     for (var bk in state) if (Object.prototype.hasOwnProperty.call(state, bk)) before[bk] = state[bk];
 
@@ -315,10 +386,10 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     var diff = health() - before;
     var description = '自然变化：升温 +' + emissions.toFixed(3) + '°C，森林 ' + (state.forest >= 30 ? '保持稳定' : '持续承压') + '，预算 +18；生命力 ' + (diff >= 0 ? '+' : '') + diff;
 
-    if (state.year >= 20) {
+    if (state.year >= state.maxYear) {
       state.finished = true;
-      addLog('20 年挑战结束', '最终生命力 ' + health() + ' / 100。' + (health() >= 75 ? '守护目标达成！' : '仍需继续努力。'), '✦');
-      $('globeStatus').textContent = '20 年任务结束 · 查看最终结算';
+      addLog(state.maxYear + ' 年挑战结束', '最终生命力 ' + health() + ' / 100。' + (health() >= 75 ? '守护目标达成！' : '仍需继续努力。'), '✦');
+      $('globeStatus').textContent = state.maxYear + ' 年任务结束 · 查看最终结算';
       render();
       showEnding();
       return;
@@ -335,13 +406,17 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     $('endIcon').textContent = won ? '✦' : '◈';
     $('endTitle').textContent = won ? '你为地球留下了希望' : '地球还需要更多守护';
     $('endDescription').textContent = won
-      ? '20 年的选择积累成了改变。没有完美的答案，但更好的未来，确实可以被创造。'
-      : '20 年过去，生态尚未达到目标。换一种行动组合，再试一次吧。';
-    var actions = 0;
+      ? state.maxYear + ' 年的选择积累成了改变。没有完美的答案，但更好的未来，确实可以被创造。'
+      : state.maxYear + ' 年过去，生态尚未达到目标。换一种行动组合，再试一次吧。';
+    var actions = 0, failed = 0;
     for (var i = 0; i < state.log.length; i++) {
-      for (var j = 0; j < ACTIONS.length; j++) if (ACTIONS[j].name === state.log[i].title) actions++;
+      var entry = state.log[i];
+      for (var j = 0; j < ACTIONS.length; j++) {
+        if (ACTIONS[j].name === entry.title) actions++;
+        if (ACTIONS[j].name + '失败' === entry.title) failed++;
+      }
     }
-    $('endStats').innerHTML = '地球生命力：<b>' + score + ' / 100</b><br>全球升温：<b>+' + state.temperature.toFixed(2) + ' °C</b><br>森林覆盖：<b>' + Math.round(state.forest) + '%</b> · 清洁能源：<b>' + Math.round(state.energy) + '%</b><br>实施行动：<b>' + actions + ' 次</b>';
+    $('endStats').innerHTML = '地球生命力：<b>' + score + ' / 100</b><br>全球升温：<b>+' + state.temperature.toFixed(2) + ' °C</b><br>森林覆盖：<b>' + Math.round(state.forest) + '%</b> · 清洁能源：<b>' + Math.round(state.energy) + '%</b><br>难度：<b>' + state.maxYear + ' 年</b><br>成功行动：<b>' + actions + ' 次</b> · 失败：<b>' + failed + ' 次</b>';
     $('endModal').hidden = false;
   }
 
@@ -689,6 +764,7 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     canvas.addEventListener('pointercancel', function () { dragging = false; });
     canvas.addEventListener('pointerleave', function () { hovering = false; });
     canvas.addEventListener('wheel', function (event) {
+      // Over the globe the wheel zooms; the surrounding area scrolls the page.
       event.preventDefault();
       zoom = clamp(zoom * (event.deltaY > 0 ? 0.92 : 1.08), 0.65, 2.2);
       R = Math.min(w, h) * 0.40 * zoom;
@@ -743,6 +819,34 @@ var LAND=[[[178.1,-17.5,178.4,-17.3,178.7,-17.6,178.6,-18.2,177.9,-18.3,177.4,-1
     });
     $('restart').addEventListener('click', restart);
     $('playAgain').addEventListener('click', restart);
+
+    // Difficulty: changing the target length restarts, since the clock is the run.
+    var yearBtns = document.querySelectorAll('.year-opt');
+    for (var y = 0; y < yearBtns.length; y++) {
+      (function (btn) {
+        btn.addEventListener('click', function () {
+          var years = Number(btn.dataset.years);
+          if (years === state.maxYear) return;
+          if (state.year > 1 && !window.confirm('切换难度会重新开始一局（' + years + ' 年），当前进度将被清除。确定吗？')) return;
+          state = FRESH();
+          state.maxYear = years;
+          $('endModal').hidden = true;
+          $('globeStatus').textContent = '难度已设为 ' + years + ' 年 · 新的旅程开始';
+          if (globe) globe.reset();
+          render();
+          toast('难度已设为 ' + years + ' 年，重新开始。');
+        });
+      })(yearBtns[y]);
+    }
+
+    // Wheel over the globe panel but outside the globe itself scrolls the page,
+    // so the middle column behaves like the rest of the document.
+    var stage = $('globeStage');
+    stage.addEventListener('wheel', function (event) {
+      var cv = stage.querySelector('canvas');
+      if (cv && event.target === cv) return; // handled by the zoom listener
+      window.scrollBy(0, event.deltaY);
+    }, { passive: true });
   }
 
   restore();
