@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#070f1c">
+  <meta name="description" content="地球守护计划：在可旋转的地球上实施行动，观察气候、生态与民生的变化。">
+  <title>地球守护计划 · EARTHKEEPER</title>
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <main class="app">
+    <header class="topbar">
+      <a class="identity" href="#top" aria-label="地球守护计划首页"><span class="identity-mark">◎</span><span><strong>EARTHKEEPER</strong><small>地 球 守 护 计 划</small></span></a>
+      <div class="top-center"><span class="pulse"></span> PLANETARY OPERATIONS <span class="separator">/</span> LIVE SIMULATION</div>
+      <div class="top-right"><span class="live-dot"></span> 地球运行中 <span id="yearPill" class="year-pill">第 1 年</span></div>
+    </header>
+
+    <div class="workspace" id="top">
+      <aside class="left-panel panel">
+        <div class="eyebrow">MISSION CONTROL <span>01 / 指挥中心</span></div>
+        <h1>每一个决定，<br><em>都会改变地球。</em></h1>
+        <p class="intro">目标：在 <b>20 年后</b>让地球生命力达到 <b>75 分</b>。按下面 ①②③ 操作，每次行动都会立刻显示结果。</p>
+        <div class="section-title"><span>① 选择要做的事</span><span class="thin">消耗的是右侧资源</span></div>
+        <div id="actionList" class="action-list"></div>
+        <div class="target-callout"><span class="target-symbol">✦</span><div><strong>可选：点击地球指定地区，效果增加 20%</strong><span id="targetName">当前目标 · 全球</span></div><button type="button" id="resetTarget" title="改回对全球行动" aria-label="改回对全球行动">改回全球</button></div>
+        <div class="section-title strategy-title"><span>② 选择投入力度</span><span class="thin">力度越大，花得越多</span></div>
+        <div class="strength-group" role="group" aria-label="行动力度"><button type="button" class="strength active" data-strength="1">做 1 次</button><button type="button" class="strength" data-strength="2">做 2 次</button><button type="button" class="strength" data-strength="3">做 3 次</button></div>
+        <div class="action-preview" id="actionPreview" aria-live="polite"></div>
+        <button class="deploy" type="button" id="deploy"><span>③ 开始行动</span><span>↗</span></button>
+        <p class="budget-note" id="budgetNote">右侧显示剩余资源；点击「推进一年」可补充 18 点。</p>
+      </aside>
+
+      <section class="globe-panel" aria-label="交互地球视图">
+        <div class="globe-topline"><span>◉ &nbsp; LIVE EARTH / 001</span><span id="coordinates">坐标 0.0° N · 0.0° E</span></div>
+        <div class="globe-stage" id="globeStage"><div id="globeCanvas"></div><div class="halo halo-one"></div><div class="halo halo-two"></div><div class="globe-cross cross-left">＋</div><div class="globe-cross cross-right">＋</div><div class="globe-label"><span class="globe-label-line"></span><span>OUR HOME<br><b>01 / 01</b></span></div><div class="globe-hint">拖动地球旋转 <span>·</span> 滚轮放大缩小 <span>·</span> 点击指定地区</div><div class="globe-fallback" id="globeFallback" hidden>您的浏览器无法启动 3D 地球。请用最新版 Chrome 或 Edge 打开。</div></div>
+        <div class="globe-bottom"><span><span class="tiny-led"></span> SYSTEM ONLINE</span><span id="globeStatus">等待你的第一个决定</span><span>∞ &nbsp; A BETTER TOMORROW</span></div>
+      </section>
+
+      <aside class="right-panel panel">
+        <div class="eyebrow">PLANETARY HEALTH <span>02 / 地球状态</span></div>
+        <div class="score-heading"><span>地球生命力</span><span id="conditionLabel" class="condition">需要关注</span></div>
+        <div class="score-block"><div><strong id="healthValue">--</strong><span class="out-of">/ 100</span></div><div class="score-orb">✦</div></div>
+        <div class="health-track"><span id="healthFill"></span></div>
+        <p class="health-caption" id="healthCaption">计算行星状态中……</p>
+        <div class="section-title metrics-title"><span>核心指标</span><span class="thin">REAL-TIME</span></div>
+        <div class="metric" data-key="temperature"><div class="metric-top"><span><i class="metric-icon warm">◈</i> 全球升温</span><b id="temperatureText"></b></div><div class="metric-track"><span id="temperatureFill" class="warm-fill"></span></div><div class="metric-foot"><span>相对工业化前</span><span>目标 ≤ 1.5°C</span></div></div>
+        <div class="metric" data-key="forest"><div class="metric-top"><span><i class="metric-icon green">✳</i> 森林覆盖</span><b id="forestText"></b></div><div class="metric-track"><span id="forestFill" class="green-fill"></span></div><div class="metric-foot"><span>陆地面积占比</span><span>目标 ≥ 35%</span></div></div>
+        <div class="metric" data-key="ocean"><div class="metric-top"><span><i class="metric-icon blue">≋</i> 海洋健康</span><b id="oceanText"></b></div><div class="metric-track"><span id="oceanFill" class="blue-fill"></span></div><div class="metric-foot"><span>生态系统指数</span><span>目标 ≥ 80</span></div></div>
+        <div class="metric" data-key="energy"><div class="metric-top"><span><i class="metric-icon gold">☼</i> 清洁能源</span><b id="energyText"></b></div><div class="metric-track"><span id="energyFill" class="gold-fill"></span></div><div class="metric-foot"><span>能源结构占比</span><span>目标 ≥ 70%</span></div></div>
+        <div class="resource-card"><div><span>◉ &nbsp; 剩余行动资源</span><strong id="resourceValue">--</strong></div><small>例如植树花 12 点资源；推进一年补充 18 点</small></div>
+        <button class="next-year" id="nextYear" type="button">推进一年（补充 18 点资源） <span>→</span></button>
+      </aside>
+    </div>
+
+    <footer class="bottom-panel"><div class="bottom-header"><div><span class="eyebrow">MISSION LOG / 行动记录</span><h2>地球的故事，由你续写。</h2></div><button type="button" id="restart" class="restart">↺ &nbsp;重新开始</button></div><div class="log-layout"><div class="timeline" id="timeline" aria-live="polite"></div><div class="mission-progress"><div><span>任务进度</span><strong id="progressText">0 / 20 年</strong></div><div class="progress-track"><span id="progressFill"></span></div><small>目标：20 年后保持地球生命力 ≥ 75</small></div></div></footer>
+    <div class="footer-note">EARTHKEEPER © 2026 <span>·</span> 这是一款策略模拟游戏，数值为游戏模型而非真实预测。</div>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="modal-backdrop" id="endModal" hidden><div class="end-card" role="dialog" aria-modal="true" aria-labelledby="endTitle"><span class="eyebrow">MISSION COMPLETE / 任务结算</span><div class="end-icon" id="endIcon">✦</div><h2 id="endTitle">未来，由你决定</h2><p id="endDescription"></p><div class="end-stats" id="endStats"></div><button type="button" id="playAgain" class="deploy">再玩一次 &nbsp; ↗</button></div></div>
+  <script src="assets/three.min.js"></script>
+  <script src="assets/d3-array.min.js"></script>
+  <script src="assets/d3-geo.min.js"></script>
+  <script src="assets/land.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
